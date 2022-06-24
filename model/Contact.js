@@ -7,6 +7,13 @@ const contactSchema = new mongoose.Schema({
     min: 6,
     max: 255,
   },
+  email: {
+    type: String,
+    required: true,
+    min: 6,
+    max: 255,
+    unique: true,
+  },
   phone_number: {
     type: String,
     required: true,
@@ -19,21 +26,16 @@ const contactSchema = new mongoose.Schema({
     min: 8,
     max: 255,
   },
-  email: {
-    type: String,
-    required: true,
-    min: 6,
-    max: 255,
-  },
+
   location: {
     type: {
       type: String,
       enum: ["Point"],
-      required: true,
+      required: false,
     },
     coordinates: {
       type: [Number],
-      required: true,
+      required: false,
     },
   },
   user: {
