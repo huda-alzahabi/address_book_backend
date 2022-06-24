@@ -52,7 +52,7 @@ async function removeContact(req, res) {
       { $pull: { contacts: contact._id } }
     );
 
-    return res.send("contact removed");
+    return res.send("Contact removed successfully");
   } catch (error) {
     console.log(error);
   }
@@ -73,7 +73,7 @@ async function updateContact(req, res) {
         },
       }
     );
-    return res.send(contact);
+    return res.send("Contact Successfully Updated");
   } catch (error) {
     console.log(error);
   }
