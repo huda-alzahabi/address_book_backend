@@ -12,7 +12,6 @@ const contactSchema = new mongoose.Schema({
     required: true,
     min: 6,
     max: 255,
-    unique: true,
   },
   phone_number: {
     type: String,
