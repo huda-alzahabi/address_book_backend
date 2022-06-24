@@ -20,6 +20,12 @@ const userSchema = new mongoose.Schema({
     min: 6,
     max: 1024,
   },
+  token: {
+    type: String,
+    required: true,
+    min: 25,
+    max: 65535,
+  },
 
   contacts: [
     {

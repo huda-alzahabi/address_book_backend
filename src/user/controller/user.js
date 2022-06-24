@@ -54,6 +54,7 @@ async function login(req, res) {
       { _id: user._id, name: user.name, email: user.email },
       TOKEN_SECRET
     );
+    user.token = token;
 
     return res.header("auth-token", token).send(token);
   } catch (error) {
