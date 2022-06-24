@@ -40,7 +40,26 @@ async function get(req, res) {
   }
 }
 
+async function removeContact(req, res) {
+  try {
+    const contact = await Contact.findOne({ _id: req.query.id });
+    if (!contact) console.log(404);
+
+    const deleteResult = await contact.remove();
+
+    await User.updateOne(
+      { _id: contact.user },
+      { $pull: { contacts: contact._id } }
+    );
+
+    return res.send("contact removed");
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
   add,
   get,
+  removeContact,
 };
