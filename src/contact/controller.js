@@ -1,4 +1,4 @@
-const { addContact } = require("./service");
+const { addContact, getContactsByUserId } = require("./service");
 const Contact = require("../../model/Contact");
 const User = require("../../model/User");
 
@@ -25,7 +25,22 @@ async function add(req, res) {
     res.status(500).send(error);
   }
 }
+async function get(req, res) {
+  try {
+    console.log(req.query);
+
+    if (req.query.id) {
+      const id = req.query.id;
+      const result = await getContactsByUserId(id);
+      console.log("result of specific user =>", result);
+      return res.send(result);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 module.exports = {
   add,
+  get,
 };

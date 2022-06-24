@@ -22,6 +22,11 @@ async function addContact(body) {
   return await contact.save();
 }
 
+async function getContactsByUserId(user_id) {
+  return await Contact.find({ user: user_id });
+}
+
 module.exports = {
   addContact,
+  getContactsByUserId,
 };
