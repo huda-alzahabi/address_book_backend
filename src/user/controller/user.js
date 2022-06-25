@@ -56,7 +56,7 @@ async function login(req, res) {
     );
     user.token = token;
 
-    return res.header("auth-token", token).send(token);
+    return res.status(200).json({ token: token });
   } catch (error) {
     console.log(error);
     res.status(500).send(error);
