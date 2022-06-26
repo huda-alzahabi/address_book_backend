@@ -27,15 +27,9 @@ const contactSchema = new mongoose.Schema({
   },
 
   location: {
-    type: {
-      type: String,
-      enum: ["Point"],
-      required: false,
-    },
-    coordinates: {
-      type: [Number],
-      required: false,
-    },
+    type: String,
+    min: 5,
+    max: 255,
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
