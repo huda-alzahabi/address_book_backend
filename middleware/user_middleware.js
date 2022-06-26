@@ -1,8 +1,6 @@
 const jwt = require("jsonwebtoken");
 const TOKEN_SECRET = process.env.TOKEN_SECRET || "";
 
-// const config = process.env;
-
 function userMiddleware() {
   return (req, res, next) => {
     const token =
