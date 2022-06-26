@@ -78,10 +78,25 @@ async function updateContact(req, res) {
     console.log(error);
   }
 }
+async function getById(req, res) {
+  try {
+    console.log(req.query);
+
+    if (req.query.id) {
+      // const id = req.query.id;
+      const result = await Contact.findOne({ _id: req.query.id });
+      console.log("result of specific user =>", result);
+      return res.send(result);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 module.exports = {
   add,
   get,
+  getById,
   removeContact,
   updateContact,
 };
